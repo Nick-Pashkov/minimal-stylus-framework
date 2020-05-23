@@ -1,0 +1,117 @@
+// Form groups
+div.form-group
+  div.form-control
+    display inline-flex
+    input, button
+      @extend .mr-1
+
+// Form control
+div.form-control
+  display flex
+  flex-direction column
+  @extend .mt-1
+  label
+    margin-bottom 0.5rem
+    @extend .weight-medium
+  &.is-checkbox
+  &.is-radio
+    flex-direction row
+    align-items center
+    input
+      @extend .mr-1
+    label
+      margin 0
+      @extend .weight-regular
+
+// Form field
+div.form-field
+  position relative
+
+  // Input field
+  input:not([type="checkbox"]):not([type="radio"])
+    border 1px solid rgba(0,0,0,0.2)
+    height 3rem
+    padding 0 1rem
+    outline none
+    border-radius 4px
+    width 100%
+    &::placeholder
+      color rgba(0,0,0,0.4)
+    &:hover
+      border-color rgba(0,0,0,0.5)
+    &:focus
+      box-shadow 0 0 0 0.125rem rgba($color-primary, 0.3)
+      border-color rgba($color-primary,0.5)
+
+  input[type="checkbox"], input[type="radio"]
+    width 1rem
+    height 1rem
+    cursor pointer
+
+  &[class*="has-icon-"]
+    input:not([type="checkbox"]):not([type="radio"])
+      &:focus 
+        + span.icon.left
+          opacity 1
+          + span.icon.right
+            opacity 1
+
+    span.icon
+      position absolute
+      top 0
+      height 3rem
+      width 3rem
+      display flex
+      align-items center
+      justify-content center
+      opacity 0.4
+      i
+        font-size 1.5rem
+      &.left
+        left 0
+      &.right
+        right 0
+    &.has-icon-left
+      input:not([type="checkbox"]):not([type="radio"])
+        padding-left 3rem
+    &.has-icon-right
+      input:not([type="checkbox"]):not([type="radio"])
+        padding-right 3rem
+
+  &.is-danger
+    input:not([type="checkbox"]):not([type="radio"])
+      box-shadow 0 0 0 0.125rem rgba($color-danger, 0.7)
+      border-color rgba($color-danger,0.5)
+      color $color-danger
+      &:hover
+        border-color rgba($color-danger,0.5)
+      &::placeholder
+        color rgba($color-danger,0.4)
+    span.icon
+      color $color-danger
+
+// Buttons
+button
+.button
+  @extend .size-n
+  border none
+  height 3rem
+  padding 0 1rem
+  outline none
+  border-radius 4px
+  font-weight $weight-bold
+  display inline-block
+  box-sizing content-box
+  &.is-primary
+    background $color-primary
+    color white
+    &:hover
+      background darken($color-primary, 5)
+
+// Help text
+p.help
+  @extend .size-sm
+  margin 0.5rem 0 0 0
+  color rgba($color-text, 0.7)
+  &.is-danger
+    color $color-danger

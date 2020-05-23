@@ -1,0 +1,83 @@
+@import '~nib/index.styl'
+//@import 'nib'
+normalize-css()
+
+/** Theme Variables */
+$body-background-color ?= white
+
+// Fonts
+$font-primary ?= sans-serif
+$font-titles ?= sans-serif
+
+// Colors
+$color-primary ?= #3498DB
+$color-link ?= blue
+$color-text ?= rgb(40, 40, 40)
+$color-danger ?= #e74c3c
+
+$color-selection ?= white
+$selection-background-color ?= black
+
+@import 'lib/responsive'
+@import 'lib/mixins'
+@import 'lib/type'
+@import 'lib/spacing'
+@import 'lib/grid'
+@import 'lib/forms'
+
+*
+  box-sizing border-box
+
+a
+  text-decoration none
+  color $color-link
+  &:hover
+    color $color-text
+
+html
+body
+#app
+  width 100%
+  min-height 100vh
+
+body
+  background-color $body-background-color
+  font-family $font-primary
+  font-size $base-font-size
+  color $color-text
+  line-height 1.0
+
+::selection
+  color $color-selection
+  background-color $selection-background-color
+
+h1, h2, h3, h4, h5, h6
+  font-family $font-titles
+
+header#main-header
+  &.is-fixed
+    position fixed
+    top 0
+    left 0
+    width 100%
+    z-index 100
+
+main
+  display flex
+  flex-direction column
+
+section
+  padding 30px
+
+ul
+ol
+  margin 0
+  padding 0
+
+i
+  font-style normal
+
+hr
+  border none
+  border-bottom 1px solid rgba(0,0,0,0.1)
+  @extend .mt-2
